@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101a2b" />
+  <meta name="description" content="Turn long links into short, trackable URLs with SHRINKR." />
+  <title>SHRINKR — Make links smaller</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="SHRINKR home">
+        <span class="brand-mark">↘</span><span>shrinkr<span class="brand-dot">.</span></span>
+      </a>
+      <div class="top-note"><span class="live-dot"></span> LINK WORKSPACE <span class="top-divider">/</span> LOCAL MODE</div>
+      <a class="github-link" href="https://github.com/" target="_blank" rel="noreferrer">Built for the web ↗</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">THE LITTLE LINK MACHINE <span>✳</span></p>
+          <h1>Less link.<br><em>More reach.</em></h1>
+          <p class="hero-text">Turn long, messy URLs into clean little links. Keep them organized and see every click add up.</p>
+          <div class="hero-stats">
+            <div><strong id="total-links">—</strong><span>LINKS CREATED</span></div>
+            <i></i>
+            <div><strong id="total-clicks">—</strong><span>TOTAL CLICKS</span></div>
+          </div>
+        </div>
+
+        <div class="shorten-card">
+          <div class="card-topline"><span>01 / CREATE A SHORT LINK</span><span class="spark">✳</span></div>
+          <form id="shorten-form">
+            <label for="url-input">Paste your long URL</label>
+            <div class="url-field">
+              <span class="field-icon">↗</span>
+              <input id="url-input" type="text" placeholder="https://example.com/a/really/long/link..." autocomplete="url" required />
+            </div>
+            <div class="custom-row">
+              <div>
+                <label for="custom-input">Custom alias <span>(optional)</span></label>
+                <div class="alias-field"><span>shrinkr/</span><input id="custom-input" maxlength="20" placeholder="your-name" /></div>
+              </div>
+              <p>3–20 characters<br>letters, numbers, - or _</p>
+            </div>
+            <button class="create-button" id="create-button" type="submit"><span>Make it shorter</span><b>↗</b></button>
+            <p class="form-message" id="form-message" role="status"></p>
+          </form>
+          <div class="result-box" id="result-box" hidden>
+            <div><span class="result-label">YOUR SHORT LINK IS READY</span><strong id="result-url"></strong></div>
+            <button id="copy-result" type="button">Copy ↗</button>
+          </div>
+          <div class="card-foot"><span>✦</span> Your links are saved on this server.</div>
+        </div>
+      </section>
+
+      <section class="links-section">
+        <div class="section-heading">
+          <div><p class="eyebrow">02 / YOUR COLLECTION</p><h2>Recent links<span>.</span></h2></div>
+          <button class="refresh-button" id="refresh-button" type="button">↻ <span>Refresh</span></button>
+        </div>
+        <div class="link-toolbar">
+          <label class="search-box" for="search-input"><span>⌕</span><input id="search-input" type="search" placeholder="Search original URLs or short codes..." /></label>
+          <label class="sort-control" for="sort-select"><span>SORT BY</span><select id="sort-select"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="clicks">Most clicks</option></select></label>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>DESTINATION</th><th>SHORT LINK</th><th>CLICKS</th><th>CREATED</th><th></th></tr></thead>
+            <tbody id="links-body">
+              <tr><td colspan="5" class="empty-state">Loading your links<span>...</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mobile-links" id="mobile-links"></div>
+      </section>
+    </main>
+    <footer><span>SHRINKR © 2026</span><span>SMALL LINKS. BIG POSSIBILITIES.</span><span>MADE TO KEEP IT SIMPLE ✳</span></footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
