@@ -38,5 +38,5 @@ For a normal production start, use `npm start`.
 ## Storage
 The server creates `data/links.json` automatically on the first saved link. This is file-based persistence intended for this internship project. For a multi-instance production deployment, replace it with a hosted database and persistent disk.
 
-## Deployment note
-Set `BASE_URL` to the public origin of your deployed app (for example, your hosting provider's URL) so the API returns the correct short-link domain. Make sure your hosting platform supports a persistent writable filesystem, or connect a database before deploying.
+## 🌐 Live Demo
+https://shrinkr-url-shortener.onrender.com/
